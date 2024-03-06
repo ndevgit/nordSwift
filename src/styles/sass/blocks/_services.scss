@@ -1,0 +1,32 @@
+.services {
+  position: relative;
+  z-index: 98;
+  margin-bottom: -64px;
+}
+
+.services__first-block {
+  padding: 184px 0px;
+  background-color: var(--bg-darkgray);
+  border-radius: 0px 0px 50px 50px;
+}
+
+.block-title {
+  font-size: 48px;
+  color: var(--text-black);
+  font-weight: 600;
+
+  margin-bottom: 40px;
+}
+
+.block-cards {
+  margin-bottom: 24px;
+  display: flex;
+  column-gap: 8px;
+}
+
+.button__showall {
+  background-color: var(--ui-white);
+  width: 100%;
+  text-align: center;
+  display: inline;
+}

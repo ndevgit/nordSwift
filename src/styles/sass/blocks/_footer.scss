@@ -1,0 +1,77 @@
+.footer {
+  padding-top: 93px;
+  background-color: steelblue;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__logos {
+  max-width: 540px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__logo-link {
+  transition: 0.3s;
+  &:hover {
+    & .footer__logo-image {
+      opacity: 0.7;
+    }
+  }
+}
+
+.footer__logo-image {
+  display: block;
+  transition: 0.3s;
+}
+
+.footer__address {
+  width: 210px;
+}
+
+.footer__address p {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-white);
+}
+
+.footer__address span {
+  font-family: var(--font-nunitosan);
+  font-size: 14px;
+  color: var(--text-white);
+}
+
+.footer__contacts a {
+  display: block;
+}
+
+.footer__tel-link {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-white);
+
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--text-blue);
+  }
+}
+
+.footer__mail-link {
+  font-family: var(--font-nunitosan);
+  font-size: 16px;
+  color: var(--text-white);
+  opacity: 0.7;
+
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--text-blue);
+    opacity: 1;
+  }
+}

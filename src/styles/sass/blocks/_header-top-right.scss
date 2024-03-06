@@ -1,0 +1,137 @@
+.header__top-right {
+  display: flex;
+  align-items: center;
+
+  // background-color: var(--ui-white);
+  // border-radius: 100px;
+  // padding: 7px 9px;
+}
+
+.language-button {
+  box-shadow: 0px 0px 0px 1px var(--ui-white);
+
+  background-color: var(--ui-lightblue);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 12px;
+
+  font-family: var(--font-nunitosans);
+  color: var(--text-black);
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  &::before {
+    content: url(../../images/icons/Flag.svg);
+    height: 18px;
+  }
+
+  // &::after {
+  //   content: url(../../images/icons/Arrow_down.svg);
+  // }
+
+  &:hover {
+    background-color: var(--ui-blue);
+    color: var(--text-white);
+
+    & svg {
+      path {
+        stroke: var(--ui-white);
+      }
+    }
+  }
+}
+
+.language-button svg {
+  display: block;
+}
+
+.language-button svg path {
+  transition: 0.3s;
+}
+
+.header__contacts {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--ui-white);
+  border-radius: 100px;
+  padding: 8px 9px;
+}
+
+.mail-link {
+  background-color: var(--ui-lightblue);
+  padding: 12px 14px;
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+
+  transition: 0.3s;
+
+  // &::before {
+  //   content: url(../../images/icons/Mail.svg);
+  // }
+
+  &:hover {
+    background-color: var(--ui-blue);
+
+    & svg {
+      path {
+        fill: var(--ui-white);
+      }
+    }
+  }
+}
+
+.mail-link svg {
+  display: block;
+}
+
+.mail-link svg path {
+  transition: 0.3s;
+}
+
+.tel-link {
+  background-color: var(--ui-lightblue);
+  padding: 10px 12px;
+  border-radius: 50px;
+
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  transition: 0.3s;
+
+  // &::before {
+  //   content: url(../../images/icons/Phone.svg);
+  // }
+
+  &:hover {
+    color: var(--text-white);
+    background-color: var(--ui-blue);
+
+    & svg {
+      path {
+        fill: var(--ui-white);
+      }
+    }
+  }
+}
+
+.tel-link svg {
+  display: block;
+}
+
+.tel-link svg path {
+  transition: 0.3s;
+}
