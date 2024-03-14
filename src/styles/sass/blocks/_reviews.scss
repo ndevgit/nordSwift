@@ -1,0 +1,111 @@
+.reviews {
+  margin-bottom: -64px;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews__content {
+  padding: 180px 0;
+  border-radius: 64px;
+
+  background: url(../../images/Reviews_bg.svg), var(--bg-gradient);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+  z-index: 1;
+  margin-bottom: -64px;
+  margin-top: -64px;
+}
+
+.reviews__title-wrapper {
+  max-width: 645px;
+  margin-bottom: 96px;
+
+  & .section-title {
+    &::before {
+      content: "//";
+      color: var(--ui-green);
+    }
+  }
+
+  & .section-description {
+    max-width: 560px;
+  }
+}
+
+.reviews__buttons {
+  display: flex;
+  align-items: center;
+  & .button__sendresume {
+    background-color: rgba(252, 252, 252, 0.2);
+    color: var(--text-white);
+
+    &:hover {
+      box-shadow: inset 0px 0px 0px 2px var(--ui-white);
+    }
+  }
+}
+
+.reviews__block {
+  background-color: var(--bg-lightgray);
+  position: relative;
+  z-index: 0;
+
+  & .reviews__cards {
+    margin-bottom: 24px;
+  }
+
+  & .reviews__card {
+    & .card__body {
+      display: flex;
+      flex-direction: column;
+      min-height: 340px;
+    }
+
+    & .card__title-wrapper {
+      max-width: 516px;
+    }
+
+    & .card__description {
+      font-size: 18px;
+      line-height: 146%;
+    }
+
+    & .card__body-bottom {
+      margin-top: auto;
+    }
+  }
+
+  & .reviews__card:nth-child(1) {
+    & .card__decorate {
+      background-image: url(../../images/cards-bg/card-bg-review.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      height: 298px;
+    }
+
+    & .card__tag {
+      background-color: var(--ui-green);
+    }
+  }
+
+  & .reviews__card:nth-child(2) {
+    & .card__decorate {
+      background-image: url(../../images/cards-bg/card-bg-review.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      height: 298px;
+    }
+
+    & .card__tag {
+      background-color: var(--ui-orange);
+    }
+  }
+}

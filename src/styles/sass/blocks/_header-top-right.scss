@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
 
-  // background-color: var(--ui-white);
-  // border-radius: 100px;
-  // padding: 7px 9px;
+  max-width: 351px;
+  width: 100%;
 }
 
 .language-button {
   box-shadow: 0px 0px 0px 1px var(--ui-white);
 
   background-color: var(--ui-lightblue);
-  border: none;
+  outline: none;
+  border: 8px solid var(--ui-white);
   border-radius: 50px;
   padding: 10px 12px;
 
@@ -21,7 +21,7 @@
 
   display: flex;
   align-items: center;
-  column-gap: 6px;
+  column-gap: 5px;
 
   cursor: pointer;
   transition: 0.3s;
@@ -30,10 +30,6 @@
     content: url(../../images/icons/Flag.svg);
     height: 18px;
   }
-
-  // &::after {
-  //   content: url(../../images/icons/Arrow_down.svg);
-  // }
 
   &:hover {
     background-color: var(--ui-blue);
@@ -66,17 +62,13 @@
 
 .mail-link {
   background-color: var(--ui-lightblue);
-  padding: 12px 14px;
+  padding: 12px 12px;
   border-radius: 50px;
 
   display: flex;
   align-items: center;
 
   transition: 0.3s;
-
-  // &::before {
-  //   content: url(../../images/icons/Mail.svg);
-  // }
 
   &:hover {
     background-color: var(--ui-blue);
@@ -111,10 +103,6 @@
   column-gap: 5px;
 
   transition: 0.3s;
-
-  // &::before {
-  //   content: url(../../images/icons/Phone.svg);
-  // }
 
   &:hover {
     color: var(--text-white);

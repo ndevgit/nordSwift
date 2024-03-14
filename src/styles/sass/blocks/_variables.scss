@@ -7,6 +7,7 @@
   --ui-blue: #145cef;
   --ui-electroblue: #4ad6ff;
   --ui-orange: #f47616;
+  --ui-green: #02cc89;
   --ui-purple: #6549d4;
 
   --text-black: #101010;
@@ -14,6 +15,22 @@
   --text-gray: #dcdde0;
   --text-white: #fcfcfc;
 
+  --text-telegram-color: #25a4e2;
+  --text-whatsapp-color: #52cd5f;
+  --text-vk-color: #4c75a3;
+
   --bg-darkgray: #dcdde0;
   --bg-lightgray: #ededed;
+  --bg-blue: #145cef;
+  --bg-purple: #6549d4;
+
+  --gradient-orange: linear-gradient(225deg, #f47616 0%, #d03916 100%);
+  --gradient-green: linear-gradient(
+    225deg,
+    #5ce1a9 0%,
+    #00ce88 51.04%,
+    #008973 100%
+  );
+
+  --bg-gradient: linear-gradient(135deg, #1c274a 0%, #040711 100%);
 }

@@ -1,0 +1,16 @@
+.button__about {
+  background-color: var(--ui-blue);
+  color: var(--text-white);
+
+  &:hover {
+    background-color: var(--ui-white);
+    box-shadow: inset 0px 0px 0px 2px var(--ui-blue);
+    color: var(--text-blue);
+
+    & svg {
+      path {
+        fill: var(--ui-blue);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.modal {
+  background-color: var(--ui-white);
+  padding: 20px;
+  border-radius: 32px;
+
+  max-width: 500px;
+  width: 100%;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-black);
+  text-align: center;
+}

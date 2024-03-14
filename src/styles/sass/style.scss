@@ -2,6 +2,9 @@
 @import "./blocks/reset";
 @import "./blocks/variables";
 @import "./blocks/body";
+@import "./blocks/page";
+@import "./blocks/overlay";
+@import "./blocks/modal";
 @import "./blocks/container";
 
 @import "./blocks/header";
@@ -13,14 +16,44 @@
 @import "./blocks/header-bottom-left";
 
 @import "./blocks/reusables";
+
 @import "./blocks/header-bottom-right";
+@import "./blocks/button";
+@import "./blocks/button-talk";
 
 @import "./blocks/main";
 
 @import "./blocks/solutions";
-@import "./blocks/card-company";
+@import "./blocks/title-wrapper";
+@import "./blocks/section-title";
+@import "./blocks/section-description";
+@import "./blocks/decorate-tablet";
+@import "./blocks/cards";
+@import "./blocks/card";
+@import "./blocks/swiper";
+@import "./blocks/common-wrapper";
+@import "./blocks/button-about";
+@import "./blocks/fact";
 
 @import "./blocks/services";
-@import "./blocks/block-card";
+@import "./blocks/button-showall";
+@import "./blocks/block";
+@import "./blocks/block-title";
+
+@import "./blocks/cases";
+@import "./blocks/tabs";
+
+@import "./blocks/reviews";
+
+@import "./blocks/team";
+
+@import "./blocks/consultation";
+@import "./blocks/form";
+@import "./blocks/validation";
 
 @import "./blocks/footer";
+
+@import "./blocks/mobile";
+
+@import "./blocks/media";
+@import "./blocks/spoiler";

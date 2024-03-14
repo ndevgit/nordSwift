@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Libs Styles -->
+    <link rel="stylesheet" href="./js/libs/swiper/swiper-bundle.min.css" />
+    <!-- End Libs Styles -->
 
     <link rel="stylesheet" href="./styles/css/style.min.css" />
     <title>Nordcore&SwiftTechnical</title>
   </head>
   <body>
     <div class="page">
-      <header class="header">
-        <div class="container">
+      <div class="overlay"></div>
+      <header class="header fix-jump">
+        <div class="container header__container">
           <div class="header__top">
             <div class="header__top-left">
               <a href="#!" class="logo-link">
@@ -22,7 +27,7 @@
               </a>
 
               <nav class="nav header__nav-top">
-                <ul class="nav__list">
+                <ul class="nav__list header__nav-list-top">
                   <li class="nav__item">
                     <a href="#!" class="nav__link nav__link-top">Холдинг</a>
                   </li>
@@ -39,27 +44,25 @@
             </div>
 
             <div class="header__top-right">
-              <div class="button-wrapper">
-                <button class="language-button">
-                  ru
+              <button class="language-button">
+                ru
 
-                  <svg
-                    width="9"
-                    height="22"
-                    viewBox="0 0 9 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      opacity="0.8"
-                      d="M1.1084 12.043L4.49973 15.043L7.89106 12.043"
-                      stroke="#145CEF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+                <svg
+                  width="9"
+                  height="22"
+                  viewBox="0 0 9 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.8"
+                    d="M1.1084 12.043L4.49973 15.043L7.89106 12.043"
+                    stroke="#145CEF"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
 
               <div class="header__contacts">
                 <a href="mailto:contact@swifttechnical.ru" class="mail-link">
@@ -91,8 +94,16 @@
                     />
                   </svg>
 
-                  +7 (495) 663-65-00</a
+                  <span>+7 (495) 663-65-00</span></a
                 >
+
+                <div class="burger-button">
+                  <div class="sticks">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -100,7 +111,7 @@
           <div class="header__bottom">
             <div class="header__bottom-left">
               <nav class="nav header__nav-bottom">
-                <ul class="nav__list">
+                <ul class="nav__list header__nav-list-bottom">
                   <li class="nav__item">
                     <p class="nav__dropdown">
                       Услуги
@@ -161,28 +172,30 @@
               </nav>
             </div>
             <div class="header__bottom-right">
-              <div class="button-wrapper">
-                <button class="button button__sendresume">
-                  Отправить резюме
-                </button>
-                <button class="button button__talk">
-                  Обсудить проект
+              <button class="button button__sendresume">
+                Отправить резюме
+              </button>
+              <button class="button button__talk">
+                Обсудить проект
 
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6.2837 0.263642C5.79055 0.318436 5.58356 0.351921 5.28523 0.415847C2.91693 0.936386 1.03264 2.79633 0.42382 5.2042C0.177249 6.19049 0.177249 7.29245 0.42382 8.28482C0.560804 8.82363 0.828684 9.52377 1.06612 9.9469C1.24268 10.2665 1.23964 10.3091 0.95958 11.2437C0.6917 12.1356 0.667347 12.2939 0.779979 12.437C0.849993 12.5283 1.00524 12.6044 1.11787 12.6044C1.16049 12.6044 1.541 12.5009 1.96413 12.373C2.97781 12.0717 2.84996 12.0595 3.78754 12.5496C4.69468 13.0275 5.64444 13.2558 6.72509 13.2558C7.78139 13.2589 8.66113 13.0549 9.61698 12.5892C11.3491 11.749 12.5515 10.3 13.0264 8.48878C13.4343 6.92107 13.2821 5.33814 12.588 3.91351C11.6322 1.9592 9.84528 0.641109 7.71442 0.32148C7.40392 0.275818 6.49678 0.239289 6.2837 0.263642ZM4.13152 6.06873C4.51812 6.29399 4.64902 6.72929 4.4542 7.11894C4.30199 7.42335 4.04933 7.58164 3.71448 7.58164C3.42225 7.58164 3.10262 7.35942 2.97781 7.07328C2.91693 6.92716 2.91389 6.62579 2.97477 6.48272C3.04174 6.31834 3.23352 6.12048 3.40703 6.03828C3.61707 5.93783 3.93061 5.95001 4.13152 6.06873ZM7.04472 6.0322C7.68702 6.32139 7.69616 7.20722 7.05994 7.50858C6.50896 7.77037 5.8697 7.3168 5.92754 6.69885C5.96407 6.27572 6.30196 5.96827 6.72509 5.96827C6.84381 5.96827 6.95644 5.99262 7.04472 6.0322ZM10.0705 6.04437C10.5667 6.28486 10.6824 6.95456 10.2958 7.3442C10.1527 7.48423 9.98836 7.56033 9.7844 7.57555C9.44651 7.5999 9.18167 7.45683 9.0112 7.15547C8.92901 7.01239 8.91684 6.9576 8.91684 6.77495C8.91684 6.59535 8.93206 6.53447 9.00816 6.39749C9.11166 6.2118 9.25777 6.0809 9.43433 6.01393C9.59567 5.95609 9.91834 5.96827 10.0705 6.04437Z"
-                      fill="#FCFCFC"
-                    />
-                  </svg>
-                </button>
-              </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.2837 0.263642C5.79055 0.318436 5.58356 0.351921 5.28523 0.415847C2.91693 0.936386 1.03264 2.79633 0.42382 5.2042C0.177249 6.19049 0.177249 7.29245 0.42382 8.28482C0.560804 8.82363 0.828684 9.52377 1.06612 9.9469C1.24268 10.2665 1.23964 10.3091 0.95958 11.2437C0.6917 12.1356 0.667347 12.2939 0.779979 12.437C0.849993 12.5283 1.00524 12.6044 1.11787 12.6044C1.16049 12.6044 1.541 12.5009 1.96413 12.373C2.97781 12.0717 2.84996 12.0595 3.78754 12.5496C4.69468 13.0275 5.64444 13.2558 6.72509 13.2558C7.78139 13.2589 8.66113 13.0549 9.61698 12.5892C11.3491 11.749 12.5515 10.3 13.0264 8.48878C13.4343 6.92107 13.2821 5.33814 12.588 3.91351C11.6322 1.9592 9.84528 0.641109 7.71442 0.32148C7.40392 0.275818 6.49678 0.239289 6.2837 0.263642ZM4.13152 6.06873C4.51812 6.29399 4.64902 6.72929 4.4542 7.11894C4.30199 7.42335 4.04933 7.58164 3.71448 7.58164C3.42225 7.58164 3.10262 7.35942 2.97781 7.07328C2.91693 6.92716 2.91389 6.62579 2.97477 6.48272C3.04174 6.31834 3.23352 6.12048 3.40703 6.03828C3.61707 5.93783 3.93061 5.95001 4.13152 6.06873ZM7.04472 6.0322C7.68702 6.32139 7.69616 7.20722 7.05994 7.50858C6.50896 7.77037 5.8697 7.3168 5.92754 6.69885C5.96407 6.27572 6.30196 5.96827 6.72509 5.96827C6.84381 5.96827 6.95644 5.99262 7.04472 6.0322ZM10.0705 6.04437C10.5667 6.28486 10.6824 6.95456 10.2958 7.3442C10.1527 7.48423 9.98836 7.56033 9.7844 7.57555C9.44651 7.5999 9.18167 7.45683 9.0112 7.15547C8.92901 7.01239 8.91684 6.9576 8.91684 6.77495C8.91684 6.59535 8.93206 6.53447 9.00816 6.39749C9.11166 6.2118 9.25777 6.0809 9.43433 6.01393C9.59567 5.95609 9.91834 5.96827 10.0705 6.04437Z"
+                    fill="#FCFCFC"
+                  />
+                </svg>
+              </button>
             </div>
+          </div>
+
+          <div class="header__mobile">
+            <div class="header__mobile-content"></div>
           </div>
         </div>
       </header>
@@ -191,161 +204,171 @@
         <section class="solutions">
           <div class="container">
             <div class="solutions__content">
-              <div class="title-wrapper">
-                <h1>
-                  <span class="decorate-slash">//</span>Комплексные
-                  <span class="decorate-tablet">кадровые </span
-                  ><span class="decorate-tablet">решения</span>
+              <div
+                class="title-wrapper solutions__title-wrapper solutions__title-wrapper--first"
+              >
+                <h1 class="section-title">
+                  Комплексные
+                  <span class="decorate-tablet-left">кадровые</span
+                  ><span class="decorate-tablet-right">решения</span>
                 </h1>
 
-                <p>
+                <p class="section-description">
                   Консалтинговая компания Nordcore & Swift Technical занимается
                   подбором и предоставлением высококвалифицированного персонала
                   для крупнейших российских и международных компаний.
                 </p>
               </div>
 
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">2</span>
-                        <span>офиса</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>В Москве и Южно-Сахалинске</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">25</span>
-                        <span>лет</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>Помогаем компаниям</span>
+              <div class="facts">
+                <div class="swiper swiper-facts">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">2</span>
+                          <span class="fact__top-text">офиса</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >В Москве и Южно-Сахалинске</span
+                          >
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">2</span>
-                        <span>офиса</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>В Москве и Южно-Сахалинске</span>
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">25</span>
+                          <span class="fact__top-text">лет</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Помогаем компаниям</span
+                          >
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">25</span>
-                        <span>лет</span>
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">2</span>
+                          <span class="fact__top-text">офиса</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >В Москве и Южно-Сахалинске</span
+                          >
+                        </div>
                       </div>
-                      <div class="fact__bottom">
-                        <span>Помогаем компаниям</span>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">25</span>
+                          <span class="fact__top-text">лет</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Помогаем компаниям</span
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="cards-company">
-                <div class="card-company">
-                  <div class="card-company__content">
-                    <div class="card-company__content-top">
-                      <div class="card-company__title-wrapper">
-                        <h2>Swift Technical</h2>
-                        <p>
-                          Подбор, временный персонал, технико-консультационные
-                          услуги
-                        </p>
-                      </div>
+              <div class="cards solutions__cards">
+                <!-- card -->
+                <div class="card solutions__card solutions__card--swift">
+                  <div class="card__content">
+                    <a href="#card-link" class="card__link"></a>
 
-                      <div>
-                        <a href="#!" class="card-company__link">
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z"
-                              fill="#145CEF"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
+                    <div class="card__decorate"></div>
+                    <div class="card__body">
+                      <div class="card__body-top">
+                        <div class="card__title-wrapper">
+                          <div class="card__title">Swift Technical</div>
 
-                    <div class="card-company__tags">
-                      <a href="#!">Подбор персонала</a>
-                      <span>//</span>
-                      <a href="#!">Временный персонал</a>
-                      <a href="#!">Консультационные услуги</a>
-                      <span>//</span>
-                      <a href="#!">Еще одна услуга</a>
+                          <p class="card__description">
+                            Подбор, временный персонал, технико-консультационные
+                            услуги
+                          </p>
+                        </div>
+                      </div>
+                      <div class="card__body-bottom">
+                        <div class="card__tags-links">
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Подбор персонала
+                          </a>
+                          <span class="card__tags-links-decorate"></span>
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Временный персонал
+                          </a>
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Консультационные услуги
+                          </a>
+                          <span class="card__tags-links-decorate"></span>
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Еще одна услуга
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <!-- end card -->
 
-                <div class="card-company">
-                  <div class="card-company__content">
-                    <div class="card-company__content-top">
-                      <div class="card-company__title-wrapper">
-                        <h2>Nordcore</h2>
-                        <p>
-                          Карьерное консультирование B2C и корпоративное
-                          обучение B2B
-                        </p>
+                <!-- card -->
+                <div class="card solutions__card solutions__card--nordcore">
+                  <div class="card__content">
+                    <a href="#card-link" class="card__link"></a>
+
+                    <div class="card__decorate"></div>
+                    <div class="card__body">
+                      <div class="card__body-top">
+                        <div class="card__title-wrapper">
+                          <div class="card__title">Nordcore</div>
+
+                          <p class="card__description">
+                            Карьерное консультирование B2C и корпоративное
+                            обучение B2B
+                          </p>
+                        </div>
                       </div>
-
-                      <div>
-                        <a href="#!" class="card-company__link">
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z"
-                              fill="#145CEF"
-                            />
-                          </svg>
-                        </a>
+                      <div class="card__body-bottom">
+                        <div class="card__tags-links">
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Обучение и оценка
+                          </a>
+                          <span class="card__tags-links-decorate"></span>
+                          <span class="card__tags-links-decorate"></span>
+                          <a href="#card-tag-link" class="card__tags-link"
+                            >Консультационные услуги
+                          </a>
+                        </div>
                       </div>
-                    </div>
-
-                    <div class="card-company__tags">
-                      <a href="#!">Обучение и оценка</a>
-                      <span>//</span>
-                      <span>//</span>
-                      <a href="#!">Консультационные услуги</a>
                     </div>
                   </div>
                 </div>
+                <!-- end card -->
               </div>
 
-              <div class="justify-wrapper">
-                <div class="title-wrapper title-wrapper--big-width">
-                  <h2>
-                    <span class="decorate-slash">//</span>Формируем команды,
-                    <span class="decorate-tablet">подбираем </span
-                    ><span class="decorate-tablet">специалистов</span>
+              <div class="common-wrapper">
+                <div
+                  class="title-wrapper solutions__title-wrapper solutions__title-wrapper--second"
+                >
+                  <h2 class="section-title">
+                    Формируем команды,
+                    <span class="decorate-tablet-left">подбираем</span
+                    ><span class="decorate-tablet-right">специалистов</span>
                   </h2>
 
-                  <p class="--small-width">
+                  <p class="section-description">
                     Собираем эффективные команды и помогаем ими управлять.
                     В любых формах занятости, для решения любых задач.
                   </p>
@@ -371,50 +394,62 @@
                 </div>
               </div>
 
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">78</span>
-                        <span>%</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>Высокий процент закрытия вакансий</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">20–40</span>
-                        <span>дней</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>Средний срок закрытия вакансий</span>
+              <div class="facts">
+                <div class="swiper swiper-facts">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">78</span>
+                          <span class="fact__top-text">%</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Высокий процент закрытия вакансий</span
+                          >
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">10 000</span>
-                      </div>
-                      <div class="fact__bottom">
-                        <span>Сотрудников подобрали за 25 лет</span>
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">20–40</span>
+                          <span class="fact__top-text">дней</span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Средний срок закрытия вакансий</span
+                          >
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <div class="fact">
-                      <div class="fact__top">
-                        <span class="number">300 000</span>
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">10 000</span>
+                          <span class="fact__top-text"></span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Сотрудников подобрали за 25 лет</span
+                          >
+                        </div>
                       </div>
-                      <div class="fact__bottom">
-                        <span>Специалистов в собственной базе</span>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="fact">
+                        <div class="fact__top">
+                          <span class="fact__top-number">300 000</span>
+                          <span class="fact__top-text"></span>
+                        </div>
+                        <div class="fact__bottom">
+                          <span class="fact__bottom-text"
+                            >Специалистов в собственной базе</span
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -426,79 +461,1098 @@
 
         <section class="services">
           <div class="services__content">
-            <div class="services__first-block">
+            <div class="block services__block services__block--nordcore">
               <div class="container">
-                <div class="first-block__content">
+                <div class="block__content">
                   <h2 class="block-title">Услуги Nordcore</h2>
 
-                  <div class="block-cards">
-                    <div class="block-card">
-                      <div class="block-card__content">
-                        <div class="block-card__content-top">
-                          <div class="block-card__title-wrapper">
-                            <h2>Консультации</h2>
-                            <p>
-                              Это обучающая платформа, которая собрала в себе
-                              полную коллекцию лучших курсов по карьерному
-                              консультированию, эйчар и повышению квалификации.
-                            </p>
-                          </div>
+                  <!-- <div class="cards services__cards">  </div> -->
+                  <div class="swiper swiper-services--nordcore">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--nordcore services__card--slide-1"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
 
-                          <div>
-                            <a href="#!" class="block-card__link">
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z"
-                                  fill="#145CEF"
-                                />
-                              </svg>
-                            </a>
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">Консультации</div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
                           </div>
                         </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--nordcore services__card--slide-2"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">
+                                    Обучение и оценка
+                                  </div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
                       </div>
                     </div>
+                  </div>
 
-                    <div class="block-card">
-                      <div class="block-card__content">
-                        <div class="block-card__content-top">
-                          <div class="block-card__title-wrapper">
-                            <h2>Консультации</h2>
-                            <p>
-                              Это обучающая платформа, которая собрала в себе
-                              полную коллекцию лучших курсов по карьерному
-                              консультированию, эйчар и повышению квалификации.
+                  <button class="button button__showall">
+                    Показать все услуги
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="block services__block services__block--swift">
+              <div class="container">
+                <div class="block__content">
+                  <h2 class="block-title">Услуги Swift Technical</h2>
+
+                  <!-- <div class="cards services__cards"> </div> -->
+
+                  <div class="swiper swiper-services--swift">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--swift services__card--slide-1"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">Консультации</div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--swift services__card--slide-2"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">
+                                    Обучение и оценка
+                                  </div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--swift services__card--slide-3"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">Консультации</div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card services__card services__card--swift services__card--slide-4"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate"></div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__title">
+                                    Обучение и оценка
+                                  </div>
+
+                                  <p class="card__description">
+                                    Это обучающая платформа, которая собрала в
+                                    себе полную коллекцию лучших курсов по
+                                    карьерному консультированию, эйчар
+                                    и повышению квалификации.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="button button__showall">
+                    Показать все услуги
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cases">
+          <div class="cases__content">
+            <div class="block cases__block cases__block--cases">
+              <div class="container">
+                <div class="block__content">
+                  <h2 class="block-title">Кейсы</h2>
+
+                  <!-- <div class="cards cases__cards"></div> -->
+
+                  <div class="swiper swiper-cases--cases">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--orange"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag"
+                                  >Schneider Electric</span
+                                >
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--orange"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag"
+                                  >Schneider Electric</span
+                                >
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--green"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag"
+                                  >Schneider Electric</span
+                                >
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="button button__showall">
+                    Показать все кейсы
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="block cases__block cases__block--media">
+              <div class="container">
+                <div class="block__content">
+                  <h2 class="block-title">Медиа</h2>
+
+                  <div class="tabs">
+                    <button
+                      class="tabs__button tabs__button--active"
+                      data-tab="latest"
+                    >
+                      Последние материалы
+                    </button>
+                    <button class="tabs__button" data-tab="posts">
+                      Статьи
+                    </button>
+                    <button class="tabs__button" data-tab="guides">
+                      Гайды
+                    </button>
+                    <button class="tabs__button" data-tab="news">
+                      Новости
+                    </button>
+                  </div>
+
+                  <!-- <div class="cards cases__cards"></div> -->
+
+                  <div class="swiper swiper-cases--media">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" data-tab-value="posts">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--orange"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag">Статьи</span>
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__date">21 сентября</div>
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide" data-tab-value="news">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--orange"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag">Новости</span>
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__date">21 сентября</div>
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+
+                      <div class="swiper-slide" data-tab-value="guides">
+                        <!-- card -->
+                        <div
+                          class="card cases__card cases__card--cases cases__card--green"
+                        >
+                          <div class="card__content">
+                            <a href="#card-link" class="card__link"></a>
+
+                            <div class="card__decorate">
+                              <div class="card__tags">
+                                <span class="card__tag">Гайды</span>
+                              </div>
+                            </div>
+                            <div class="card__body">
+                              <div class="card__body-top">
+                                <div class="card__title-wrapper">
+                                  <div class="card__date">21 сентября</div>
+                                  <p class="card__description">
+                                    Подобрали 400 специалистов в сфере
+                                    промышленной автоматизации за месяц
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="card__body-bottom"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end card -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="button button__showall">
+                    Показать все материалы
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="reviews">
+          <div class="reviews__content">
+            <div class="container">
+              <div class="reviews__content-main">
+                <div class="title-wrapper reviews__title-wrapper">
+                  <h1 class="section-title">
+                    Всё получится: новая профессия и новая жизнь
+                  </h1>
+
+                  <p class="section-description">
+                    С вами всегда наставники, ревьюеры и такие же как вы
+                    студенты. Реальные проекты и целая платформа с упражнениями
+                    помимо теории. Практикум помогает прийти к цели быстрее.
+                    Главное — идти!
+                  </p>
+                </div>
+
+                <div class="reviews__buttons">
+                  <button class="button button__talk">
+                    Обсудить проект
+
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.2837 0.263642C5.79055 0.318436 5.58356 0.351921 5.28523 0.415847C2.91693 0.936386 1.03264 2.79633 0.42382 5.2042C0.177249 6.19049 0.177249 7.29245 0.42382 8.28482C0.560804 8.82363 0.828684 9.52377 1.06612 9.9469C1.24268 10.2665 1.23964 10.3091 0.95958 11.2437C0.6917 12.1356 0.667347 12.2939 0.779979 12.437C0.849993 12.5283 1.00524 12.6044 1.11787 12.6044C1.16049 12.6044 1.541 12.5009 1.96413 12.373C2.97781 12.0717 2.84996 12.0595 3.78754 12.5496C4.69468 13.0275 5.64444 13.2558 6.72509 13.2558C7.78139 13.2589 8.66113 13.0549 9.61698 12.5892C11.3491 11.749 12.5515 10.3 13.0264 8.48878C13.4343 6.92107 13.2821 5.33814 12.588 3.91351C11.6322 1.9592 9.84528 0.641109 7.71442 0.32148C7.40392 0.275818 6.49678 0.239289 6.2837 0.263642ZM4.13152 6.06873C4.51812 6.29399 4.64902 6.72929 4.4542 7.11894C4.30199 7.42335 4.04933 7.58164 3.71448 7.58164C3.42225 7.58164 3.10262 7.35942 2.97781 7.07328C2.91693 6.92716 2.91389 6.62579 2.97477 6.48272C3.04174 6.31834 3.23352 6.12048 3.40703 6.03828C3.61707 5.93783 3.93061 5.95001 4.13152 6.06873ZM7.04472 6.0322C7.68702 6.32139 7.69616 7.20722 7.05994 7.50858C6.50896 7.77037 5.8697 7.3168 5.92754 6.69885C5.96407 6.27572 6.30196 5.96827 6.72509 5.96827C6.84381 5.96827 6.95644 5.99262 7.04472 6.0322ZM10.0705 6.04437C10.5667 6.28486 10.6824 6.95456 10.2958 7.3442C10.1527 7.48423 9.98836 7.56033 9.7844 7.57555C9.44651 7.5999 9.18167 7.45683 9.0112 7.15547C8.92901 7.01239 8.91684 6.9576 8.91684 6.77495C8.91684 6.59535 8.93206 6.53447 9.00816 6.39749C9.11166 6.2118 9.25777 6.0809 9.43433 6.01393C9.59567 5.95609 9.91834 5.96827 10.0705 6.04437Z"
+                        fill="#FCFCFC"
+                      />
+                    </svg>
+                  </button>
+                  <button class="button button__sendresume">
+                    Отправить резюме
+
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.5 3.00293H2.5C2.16848 3.00293 1.85054 3.13463 1.61612 3.36905C1.3817 3.60347 1.25 3.92141 1.25 4.25293V11.7529C1.25 12.0844 1.3817 12.4024 1.61612 12.6368C1.85054 12.8712 2.16848 13.0029 2.5 13.0029H12.5C12.8315 13.0029 13.1495 12.8712 13.3839 12.6368C13.6183 12.4024 13.75 12.0844 13.75 11.7529V4.25293C13.75 3.92141 13.6183 3.60347 13.3839 3.36905C13.1495 3.13463 12.8315 3.00293 12.5 3.00293ZM12.5 5.94043L7.5 9.27418L2.5 5.94043V4.43855L7.5 7.77168L12.5 4.43855V5.94043Z"
+                        fill="#FCFCFC"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block reviews__block">
+            <div class="container">
+              <div class="block__content">
+                <h2 class="block-title">Отзывы клиентов</h2>
+
+                <div class="cards reviews__cards">
+                  <!-- card -->
+                  <div class="card reviews__card">
+                    <div class="card__content">
+                      <div class="card__decorate">
+                        <div class="card__tags">
+                          <span class="card__tag">ЗАО «ТАМАНЬНЕФТЕГАЗ»</span>
+                        </div>
+                      </div>
+                      <div class="card__body">
+                        <div class="card__body-top">
+                          <div class="card__title-wrapper">
+                            <p class="card__description">
+                              Слаженная и качественная работа, профессиональный
+                              подход к выполнению своих обязательств позволяют
+                              осуществлять поставленные задачи и гарантировать
+                              непрерывность производственного процесса. Надеемся
+                              на дальнейшее взаимовыгодное сотрудничество.
+                              Слаженная и качественная работа, профессиональный
+                              подход к выполнению своих обязательств позволяют
+                              осуществлять поставленные задачи и гарантировать
+                              непрерывность производственного процесса.
                             </p>
                           </div>
-
-                          <div>
-                            <a href="#!" class="block-card__link">
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z"
-                                  fill="#145CEF"
-                                />
-                              </svg>
-                            </a>
+                        </div>
+                        <div class="card__body-bottom">
+                          <div class="card__author">
+                            <p class="card__author-name">А. М. Меткин</p>
+                            <p class="card__author-status">
+                              Генеральный директор
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="button button__showall">
-                    Показать все услуги
-                  </button>
+                  <!-- end card -->
+
+                  <!-- card -->
+                  <div class="card reviews__card">
+                    <div class="card__content">
+                      <div class="card__decorate">
+                        <div class="card__tags">
+                          <span class="card__tag">ЗАО «ТАМАНЬНЕФТЕГАЗ»</span>
+                        </div>
+                      </div>
+                      <div class="card__body">
+                        <div class="card__body-top">
+                          <div class="card__title-wrapper">
+                            <p class="card__description">
+                              Слаженная и качественная работа, профессиональный
+                              подход к выполнению своих обязательств позволяют
+                              осуществлять поставленные задачи и гарантировать
+                              непрерывность производственного процесса. Надеемся
+                              на дальнейшее взаимовыгодное сотрудничество.
+                              Слаженная и качественная работа, профессиональный
+                              подход к выполнению своих обязательств позволяют
+                              осуществлять поставленные задачи и гарантировать
+                              непрерывность производственного процесса.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card__body-bottom">
+                          <div class="card__author">
+                            <p class="card__author-name">З. А. Грызлова</p>
+                            <p class="card__author-status">
+                              Начальник отдела закупок
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end card -->
+                </div>
+
+                <button class="button button__showall">
+                  Показать все отзывы
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="team">
+          <div class="container">
+            <div class="team__content">
+              <h2
+                class="block-title team__block-title team__block-title--directors"
+              >
+                Совет директоров
+              </h2>
+
+              <div class="swiper swiper-team-directors">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div class="card team__card team__card--directors">
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Nordcore</span>
+                            <span class="card__tag">Swift Technical</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">Лариса Катунина</p>
+                                <p class="card__author-status">
+                                  Генеральный директор и собственник компании
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div class="card team__card team__card--directors">
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Nordcore</span>
+                            <span class="card__tag">Swift Technical</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">
+                                  Виолетта Романова
+                                </p>
+                                <p class="card__author-status">
+                                  Директор по подбору персонала и развития
+                                  бизнеса
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div class="card team__card team__card--directors">
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Nordcore</span>
+                            <span class="card__tag">Swift Technical</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">Федор Коршунов</p>
+                                <p class="card__author-status">
+                                  Генеральный директор и собственник компании
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide"></div>
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+
+              <h2
+                class="block-title team__block-title team__block-title--members"
+              >
+                Команда холдинга
+              </h2>
+
+              <div class="swiper swiper-team-members">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div
+                      class="card team__card team__card--members team__card--members--slide-1"
+                    >
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Nordcore</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">Перт Мартич</p>
+                                <p class="card__author-status">
+                                  Генеральный директор
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div
+                      class="card team__card team__card--members team__card--members--slide-2"
+                    >
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Swift Technical</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">Мария Наршиева</p>
+                                <p class="card__author-status">
+                                  Генеральный директор
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div
+                      class="card team__card team__card--members team__card--members--slide-3"
+                    >
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Nordcore</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">Анна Федукова</p>
+                                <p class="card__author-status">
+                                  Генеральный директор
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- card -->
+                    <div
+                      class="card team__card team__card--members team__card--members--slide-4"
+                    >
+                      <div class="card__content">
+                        <div class="card__decorate">
+                          <div class="card__tags">
+                            <span class="card__tag">Swift Technical</span>
+                          </div>
+                        </div>
+                        <div class="card__body">
+                          <div class="card__body-top">
+                            <div class="card__title-wrapper">
+                              <div class="card__author">
+                                <p class="card__author-name">
+                                  Максим Лаврентьев
+                                </p>
+                                <p class="card__author-status">
+                                  Генеральный директор
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card__body-bottom">
+                            <div class="card__contacts">
+                              <a
+                                class="card__contacts-tel"
+                                href="tel:+89199700308"
+                                >8 (919) 970 03 08</a
+                              >
+
+                              <a
+                                class="card__contacts-mail"
+                                href="mailto:larisa.katunina@swifttechnical.ru"
+                                >larisa.katunina@swifttechnical.ru</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end card -->
+                  </div>
+
+                  <div class="swiper-slide"></div>
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="consultation">
+          <div class="container">
+            <div class="consultation__content">
+              <div class="consultation__content-left">
+                <div class="title-wrapper title-wrapper--consultation">
+                  <h2 class="section-title">Консультация специалиста</h2>
+
+                  <p class="section-description">
+                    Напишите нам, позвоните или оставьте заявку. Выбирайте
+                    наиболее удобный для вас способ коммуникации!
+                  </p>
+                </div>
+
+                <div class="consultation__links">
+                  <a href="#!" class="consultation__link">
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.00002 1.92432C4.12877 1.92432 0.986877 5.0662 0.986877 8.93746C0.986877 12.8087 4.12877 15.9506 8.00002 15.9506C11.8713 15.9506 15.0132 12.8087 15.0132 8.93746C15.0132 5.0662 11.8713 1.92432 8.00002 1.92432ZM11.2541 6.69325C11.1489 7.80133 10.6931 10.4944 10.4616 11.7357C10.3635 12.2617 10.1671 12.437 9.98474 12.4581C9.57798 12.4931 9.2694 12.1916 8.87666 11.9321C8.25951 11.5253 7.90885 11.2728 7.31273 10.8801C6.61843 10.4242 7.06727 10.1718 7.46702 9.76501C7.57222 9.65981 9.36758 8.02575 9.40265 7.87847C9.40752 7.85617 9.40687 7.83301 9.40076 7.81101C9.39465 7.78901 9.38326 7.76884 9.36758 7.75224C9.3255 7.71717 9.2694 7.7312 9.22031 7.73821C9.15719 7.75224 8.17535 8.40446 6.26076 9.69488C5.98024 9.88423 5.72776 9.98242 5.50334 9.9754C5.25087 9.96839 4.77397 9.83514 4.4163 9.71592C3.97448 9.57566 3.63083 9.49851 3.65889 9.25305C3.67291 9.12681 3.84824 9.00058 4.17786 8.86733C6.2257 7.97666 7.58625 7.38756 8.26652 7.10703C10.2162 6.2935 10.6159 6.15324 10.8824 6.15324C10.9385 6.15324 11.0718 6.16727 11.1559 6.2374C11.2261 6.2935 11.2471 6.37065 11.2541 6.42675C11.2471 6.46883 11.2611 6.59507 11.2541 6.69325Z"
+                        fill="#25A4E2"
+                      />
+                    </svg>
+
+                    Telegram
+                  </a>
+                  <a href="#!" class="consultation__link">
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.00066 1.91284C11.8804 1.91284 15.0253 5.05776 15.0253 8.93745C15.0253 12.8171 11.8804 15.9621 8.00066 15.9621C6.75926 15.9641 5.5397 15.6355 4.46728 15.0102L0.978863 15.9621L1.92859 12.4722C1.30276 11.3995 0.97398 10.1794 0.976053 8.93745C0.976053 5.05776 4.12097 1.91284 8.00066 1.91284ZM5.60668 5.63588L5.46618 5.6415C5.37523 5.64704 5.28634 5.67094 5.20487 5.71175C5.12867 5.7549 5.0591 5.80885 4.99834 5.87191C4.91405 5.95129 4.86628 6.02013 4.815 6.08686C4.55518 6.42468 4.41528 6.83942 4.41741 7.26559C4.41881 7.6098 4.50873 7.94487 4.64922 8.25817C4.93653 8.89179 5.40928 9.56264 6.03307 10.1843C6.1834 10.3339 6.33091 10.4843 6.48967 10.6241C7.26476 11.3065 8.1884 11.7986 9.18712 12.0613L9.58612 12.1224C9.71607 12.1294 9.84603 12.1196 9.97668 12.1133C10.1813 12.1027 10.381 12.0473 10.5618 11.951C10.6538 11.9036 10.7436 11.8521 10.8309 11.7965C10.8309 11.7965 10.8611 11.7768 10.9187 11.7332C11.0135 11.663 11.0718 11.6131 11.1505 11.5309C11.2088 11.4705 11.2594 11.3996 11.298 11.3188C11.3528 11.2043 11.4076 10.9858 11.4301 10.8039C11.4469 10.6648 11.442 10.5889 11.4399 10.5419C11.4371 10.4667 11.3746 10.3887 11.3064 10.3557L10.8976 10.1724C10.8976 10.1724 10.2865 9.90614 9.91276 9.73615C9.87366 9.71907 9.83175 9.70931 9.78913 9.70735C9.74107 9.70241 9.6925 9.70782 9.6467 9.72321C9.6009 9.73859 9.55893 9.76361 9.5236 9.79656C9.52008 9.79515 9.47302 9.8352 8.96514 10.4506C8.93599 10.4897 8.89584 10.5193 8.8498 10.5356C8.80376 10.5519 8.75392 10.554 8.70663 10.5419C8.66087 10.5296 8.61604 10.5141 8.57246 10.4955C8.48536 10.459 8.45515 10.4449 8.39544 10.4196C7.99228 10.2437 7.61901 10.006 7.28907 9.71507C7.20056 9.6378 7.11837 9.55351 7.03408 9.47202C6.75772 9.20736 6.51687 8.90795 6.31757 8.5813L6.27612 8.51457C6.24635 8.46973 6.22228 8.42135 6.20447 8.37056C6.17778 8.2673 6.24732 8.18441 6.24732 8.18441C6.24732 8.18441 6.41802 7.99756 6.4974 7.8964C6.57467 7.79806 6.63999 7.70252 6.68214 7.63439C6.76503 7.50092 6.79102 7.36394 6.74747 7.25787C6.55078 6.77738 6.34707 6.29901 6.13774 5.82414C6.09629 5.73001 5.97336 5.66258 5.86167 5.64923C5.82374 5.64502 5.7858 5.6408 5.74787 5.63799C5.65353 5.6333 5.559 5.63424 5.46478 5.6408L5.60597 5.63518L5.60668 5.63588Z"
+                        fill="url(#paint0_linear_1_3420)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_1_3420"
+                          x1="12.678"
+                          y1="3.01665"
+                          x2="0.976044"
+                          y2="15.9621"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#52CD5F" />
+                          <stop offset="1" stop-color="#28B43E" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+
+                    Whatsapp
+                  </a>
+                  <a href="#!" class="consultation__link">
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_1_3426)">
+                        <path
+                          d="M7.99995 1.40576C3.84016 1.40576 0.468079 4.77784 0.468079 8.93763C0.468079 13.0974 3.84016 16.4695 7.99995 16.4695C12.1597 16.4695 15.5318 13.0974 15.5318 8.93763C15.5318 4.77784 12.1597 1.40576 7.99995 1.40576ZM10.8966 9.90343C10.8966 9.90343 11.5627 10.5609 11.7267 10.8661C11.7314 10.8724 11.7337 10.8787 11.7353 10.8818C11.802 10.994 11.8177 11.0811 11.7847 11.1462C11.7298 11.2545 11.5415 11.3078 11.4772 11.3125H10.3003C10.2187 11.3125 10.0477 11.2913 9.84055 11.1485C9.68128 11.0371 9.52437 10.8543 9.37137 10.6762C9.14306 10.4111 8.94535 10.182 8.74607 10.182C8.72076 10.1819 8.6956 10.1859 8.67154 10.1937C8.5209 10.2424 8.3279 10.4573 8.3279 11.0301C8.3279 11.209 8.18667 11.3117 8.08703 11.3117H7.54803C7.36445 11.3117 6.40805 11.2474 5.56072 10.3538C4.52352 9.2593 3.58988 7.06408 3.58204 7.04368C3.52319 6.90167 3.6448 6.82557 3.77739 6.82557H4.96602C5.1245 6.82557 5.17628 6.92207 5.21237 7.00759C5.25474 7.10723 5.41008 7.50344 5.66507 7.94907C6.07854 8.67558 6.33195 8.97058 6.53516 8.97058C6.57326 8.97013 6.61068 8.96044 6.64421 8.94234C6.90939 8.79484 6.85997 7.84943 6.8482 7.65329C6.8482 7.61641 6.84741 7.23041 6.71168 7.04525C6.6144 6.91109 6.44885 6.86009 6.34843 6.84126C6.38907 6.78517 6.44263 6.73969 6.50456 6.70867C6.68658 6.61766 7.01453 6.60432 7.34012 6.60432H7.52136C7.87442 6.60903 7.96543 6.63178 8.09331 6.66395C8.35222 6.72593 8.35771 6.89304 8.33496 7.46499C8.3279 7.6274 8.32084 7.81099 8.32084 8.02753C8.32084 8.0746 8.31848 8.12482 8.31848 8.17817C8.31064 8.46924 8.30122 8.79955 8.50678 8.93528C8.53359 8.95209 8.56457 8.96106 8.59622 8.96117C8.66762 8.96117 8.88259 8.96117 9.46474 7.96241C9.64428 7.64094 9.80029 7.30688 9.93156 6.96287C9.94333 6.94247 9.97785 6.8797 10.0186 6.85538C10.0488 6.84003 10.0821 6.83222 10.1159 6.83263H11.5132C11.6655 6.83263 11.7698 6.85538 11.7894 6.91422C11.8239 7.00759 11.7831 7.29239 11.1453 8.1562L10.8605 8.53201C10.2823 9.2899 10.2823 9.32835 10.8966 9.90343Z"
+                          fill="#4C75A3"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1_3426">
+                          <rect
+                            width="16"
+                            height="16"
+                            fill="white"
+                            transform="translate(0 0.9375)"
+                          />
+                        </clipPath>
+                      </defs>
+                    </svg>
+
+                    Вконтакте
+                  </a>
+                  <a href="#!" class="consultation__link">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 3H3C2.60218 3 2.22064 3.15804 1.93934 3.43934C1.65804 3.72064 1.5 4.10218 1.5 4.5V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H15C15.3978 15 15.7794 14.842 16.0607 14.5607C16.342 14.2794 16.5 13.8978 16.5 13.5V4.5C16.5 4.10218 16.342 3.72064 16.0607 3.43934C15.7794 3.15804 15.3978 3 15 3ZM15 6.525L9 10.5255L3 6.525V4.72275L9 8.7225L15 4.72275V6.525Z"
+                        fill="#145CEF"
+                      />
+                    </svg>
+
+                    Почта
+                  </a>
+                </div>
+              </div>
+
+              <div class="consultation__content-right">
+                <div class="form-wrapper">
+                  <p class="form-title">Оставьте заявку</p>
+                  <form class="form">
+                    <div class="form__top">
+                      <input
+                        class="form__input"
+                        type="text"
+                        placeholder="Имя"
+                      />
+                      <input
+                        class="form__input"
+                        type="text"
+                        placeholder="Телефон"
+                      />
+                      <input
+                        class="form__input"
+                        type="text"
+                        placeholder="Email"
+                      />
+                    </div>
+
+                    <div class="form__bottom">
+                      <p class="form__description">
+                        Нажимая на кнопку «Отправить данные», вы даете согласие
+                        на обработку персональный данных
+                      </p>
+                      <button class="button form__button" type="submit">
+                        Отправить данные
+
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M15 3H3C2.60218 3 2.22064 3.15804 1.93934 3.43934C1.65804 3.72064 1.5 4.10218 1.5 4.5V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H15C15.3978 15 15.7794 14.842 16.0607 14.5607C16.342 14.2794 16.5 13.8978 16.5 13.5V4.5C16.5 4.10218 16.342 3.72064 16.0607 3.43934C15.7794 3.15804 15.3978 3 15 3ZM15 6.525L9 10.5255L3 6.525V4.72275L9 8.7225L15 4.72275V6.525Z"
+                            fill="#145CEF"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -526,8 +1580,10 @@
                 </a>
               </div>
               <div class="footer__address">
-                <p>Москва</p>
-                <span>4й Добрынинский переулок, дом 8, офис С03-01</span>
+                <p class="footer__address-city">Москва</p>
+                <span class="footer__address-street"
+                  >4й Добрынинский переулок, дом 8, офис С03-01</span
+                >
               </div>
               <div class="footer__contacts">
                 <a
@@ -540,9 +1596,361 @@
                 >
               </div>
             </div>
+
+            <div class="footer__middle">
+              <div class="footer__middle-columns">
+                <div class="footer__middle-column column-1">
+                  <div class="spoiler-wrapper">
+                    <span class="footer__column-title spoiler-button"
+                      >Swift Technical
+
+                      <svg
+                        width="12"
+                        height="7"
+                        viewBox="0 0 12 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.47919 1.55615L5.93031 5.49365L10.3814 1.55615"
+                          stroke="#4AD6FF"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <nav class="nav footer__nav spoiler-item">
+                      <ul class="nav__list footer__nav-list">
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Подбор персонала</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Временный персонал</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Консультационные услуги</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Подбор персонала</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Временный персонал</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Консультационные услуги</a
+                          >
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="footer__middle-column column-2">
+                  <div class="spoiler-wrapper">
+                    <span class="footer__column-title spoiler-button"
+                      >Nordcore
+
+                      <svg
+                        width="12"
+                        height="7"
+                        viewBox="0 0 12 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.47919 1.55615L5.93031 5.49365L10.3814 1.55615"
+                          stroke="#4AD6FF"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <nav class="nav footer__nav spoiler-item">
+                      <ul class="nav__list footer__nav-list">
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Обучение и оценка</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Консультационные услуги</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Обучение и оценка</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Консультационные услуги</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Обучение и оценка</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Консультационные услуги</a
+                          >
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="footer__middle-column column-3">
+                  <span
+                    class="footer__column-title footer__column-title--margin"
+                    >Кейсы</span
+                  >
+                  <div class="spoiler-wrapper">
+                    <span class="footer__column-title spoiler-button"
+                      >Медиа
+
+                      <svg
+                        width="12"
+                        height="7"
+                        viewBox="0 0 12 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.47919 1.55615L5.93031 5.49365L10.3814 1.55615"
+                          stroke="#4AD6FF"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+
+                    <nav class="nav footer__nav spoiler-item">
+                      <ul class="nav__list footer__nav-list">
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Статьи</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Гайды</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Новости</a
+                          >
+                        </li>
+
+                        <li class="nav__item">
+                          <a href="#!" class="nav__link footer__nav-link"
+                            >Мероприятия</a
+                          >
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="footer__middle-column column-4">
+                  <nav class="nav footer__nav">
+                    <ul
+                      class="nav__list footer__nav-list footer__nav-list--biglinks"
+                    >
+                      <li class="nav__item">
+                        <a
+                          href="#!"
+                          class="nav__link footer__nav-link footer__nav-link--big"
+                          >О холдинге</a
+                        >
+                      </li>
+
+                      <li class="nav__item">
+                        <a
+                          href="#!"
+                          class="nav__link footer__nav-link footer__nav-link--big"
+                          >Вакансии</a
+                        >
+                      </li>
+
+                      <li class="nav__item">
+                        <a
+                          href="#!"
+                          class="nav__link footer__nav-link footer__nav-link--big"
+                          >Контакты</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="footer__middle-column column-5">
+                  <div class="footer__contacts footer__contacts--job">
+                    <span class="footer__contacts-title">Почта для резюме</span>
+                    <a
+                      class="footer__mail-link footer__mail-link--job"
+                      href="mailto:rabota@swifttechnical.ru"
+                      >Rabota@SwiftTechnical.ru</a
+                    >
+                  </div>
+
+                  <div class="footer__socials">
+                    <a href="#!" class="footer__socials-link">
+                      <svg
+                        width="22"
+                        height="23"
+                        viewBox="0 0 22 23"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M17.6886 4.19947C17.9152 4.10413 18.1631 4.07125 18.4066 4.10425C18.6502 4.13725 18.8804 4.23492 19.0734 4.3871C19.2664 4.53928 19.4151 4.74041 19.504 4.96955C19.5929 5.19869 19.6187 5.44746 19.5788 5.68997L17.4998 18.3006C17.2981 19.517 15.9635 20.2146 14.8479 19.6086C13.9147 19.1017 12.5287 18.3207 11.2821 17.5058C10.6587 17.0979 8.7493 15.7916 8.98397 14.8621C9.18564 14.0674 12.394 11.0809 14.2273 9.30531C14.9469 8.60772 14.6187 8.20531 13.769 8.84697C11.6579 10.4401 8.2708 12.8629 7.15064 13.5449C6.16247 14.1462 5.6473 14.2489 5.0313 14.1462C3.90747 13.9592 2.86522 13.6696 2.01455 13.3166C0.865054 12.84 0.920971 11.2596 2.01364 10.7995L17.6886 4.19947Z"
+                          fill="#FCFCFC"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#!" class="footer__socials-link">
+                      <svg
+                        width="26"
+                        height="27"
+                        viewBox="0 0 26 27"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1_3371)">
+                          <path
+                            d="M2.17143 13.1129C2.16825 13.2208 2.16666 13.3289 2.16666 13.4376C2.16666 13.5462 2.16825 13.6544 2.17143 13.7623C6.56014 13.817 9.02729 14.1172 10.6739 15.7637C12.3204 17.4103 12.6206 19.8775 12.6753 24.2662C12.7832 24.2693 12.8914 24.2709 13 24.2709C13.1086 24.2709 13.2168 24.2693 13.3247 24.2662C13.3794 19.8775 13.6796 17.4103 15.3261 15.7637C16.9727 14.1172 19.4399 13.817 23.8286 13.7623C23.8317 13.6544 23.8333 13.5462 23.8333 13.4376C23.8333 13.3289 23.8317 13.2208 23.8286 13.1129C19.4399 13.0582 16.9727 12.758 15.3261 11.1114C13.6796 9.46487 13.3794 6.99771 13.3247 2.60902C13.2168 2.60585 13.1086 2.60425 13 2.60425C12.8914 2.60425 12.7832 2.60585 12.6753 2.60902C12.6206 6.99772 12.3204 9.46488 10.6739 11.1114C9.02729 12.758 6.56013 13.0582 2.17143 13.1129Z"
+                            fill="#FCFCFC"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12.5543 0.4375V0.443202C12.6832 0.43941 12.8125 0.4375 12.9422 0.4375C13.0719 0.4375 13.2013 0.43941 13.3301 0.443202V0.4375H12.9422H12.5543ZM0 12.9918H0.00570237C0.00190965 13.1207 0 13.2499 0 13.3797V12.9918ZM0.0057022 13.7676C0.00190959 13.6388 0 13.5094 0 13.3797V13.7676H0.0057022ZM12.5543 26.3163L12.5544 26.3219H12.9422H13.3301V26.3163C13.2013 26.32 13.0719 26.3219 12.9422 26.3219C12.8125 26.3219 12.6832 26.32 12.5543 26.3163ZM25.8844 13.7675L25.8788 13.7676C25.8825 13.6388 25.8844 13.5094 25.8844 13.3797V13.7675ZM25.8844 12.9918V13.3797C25.8844 13.2499 25.8825 13.1207 25.8788 12.9918H25.8844Z"
+                            fill="#FCFCFC"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1_3371">
+                            <rect
+                              width="26"
+                              height="26"
+                              fill="white"
+                              transform="translate(0 0.4375)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                    <a href="#!" class="footer__socials-link">
+                      <svg
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.503 18.8186H19.222C18.359 18.8186 18.099 18.1196 16.552 16.5716C15.2 15.2686 14.629 15.1066 14.287 15.1066C13.814 15.1066 13.685 15.2366 13.685 15.8876V17.9396C13.685 18.4946 13.505 18.8196 12.055 18.8196C10.6483 18.7251 9.28416 18.2977 8.07497 17.5727C6.86578 16.8478 5.84612 15.8459 5.1 14.6496C3.32839 12.4446 2.09571 9.85667 1.5 7.09159C1.5 6.74959 1.63 6.43959 2.282 6.43959H4.562C5.148 6.43959 5.359 6.70059 5.589 7.30359C6.696 10.5616 8.585 13.3956 9.352 13.3956C9.646 13.3956 9.774 13.2656 9.774 12.5326V9.17659C9.677 7.64559 8.864 7.51659 8.864 6.96259C8.87428 6.81643 8.94114 6.68004 9.05037 6.58238C9.15961 6.48473 9.30261 6.4335 9.449 6.43959H13.033C13.523 6.43959 13.685 6.68359 13.685 7.26959V11.7996C13.685 12.2886 13.895 12.4506 14.043 12.4506C14.337 12.4506 14.563 12.2886 15.102 11.7506C16.2574 10.3416 17.2013 8.77176 17.904 7.09059C17.9759 6.88874 18.1119 6.71596 18.2912 6.59861C18.4705 6.48125 18.6832 6.42575 18.897 6.44059H21.178C21.862 6.44059 22.007 6.78259 21.862 7.27059C21.0324 9.12901 20.0058 10.8931 18.8 12.5326C18.554 12.9076 18.456 13.1026 18.8 13.5426C19.026 13.8846 19.826 14.5526 20.363 15.1876C21.145 15.9676 21.794 16.8696 22.285 17.8576C22.481 18.4936 22.154 18.8186 21.503 18.8186Z"
+                          fill="#FCFCFC"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#!" class="footer__socials-link">
+                      <svg
+                        width="22"
+                        height="23"
+                        viewBox="0 0 22 23"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.36149 4.02077C6.36125 4.507 6.16786 4.97322 5.82387 5.31687C5.47988 5.66051 5.01347 5.85343 4.52724 5.85319C4.04101 5.85295 3.57479 5.65956 3.23115 5.31557C2.8875 4.97158 2.69458 4.50517 2.69482 4.01894C2.69507 3.53271 2.88845 3.06649 3.23244 2.72285C3.57643 2.3792 4.04284 2.18628 4.52907 2.18652C5.0153 2.18677 5.48152 2.38015 5.82517 2.72414C6.16881 3.06813 6.36173 3.53454 6.36149 4.02077ZM6.41649 7.21077H2.74982V18.6874H6.41649V7.21077ZM12.2098 7.21077H8.56149V18.6874H12.1732V12.6649C12.1732 9.30994 16.5457 8.99827 16.5457 12.6649V18.6874H20.1665V11.4183C20.1665 5.76244 13.6948 5.97327 12.1732 8.75077L12.2098 7.21077Z"
+                          fill="#FCFCFC"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#!" class="footer__socials-link">
+                      <svg
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.88375 3.2627V9.85683C5.80406 8.65981 6.90725 8.05726 8.18666 8.05726C8.84561 8.05726 9.4357 8.19457 9.96508 8.46676C10.4959 8.73735 10.8928 9.08466 11.1608 9.50629C11.4303 9.93195 11.6125 10.398 11.7109 10.9117C11.8087 11.423 11.8575 12.2186 11.8575 13.2977V20.3482H8.99813V13.998C8.99813 12.7379 8.9463 11.9399 8.83746 11.6007C8.73549 11.2684 8.5332 10.9836 8.26366 10.793C7.98823 10.5902 7.64543 10.4901 7.23154 10.4901C6.75769 10.4901 6.33271 10.6193 5.96325 10.8762C5.58565 11.1346 5.31466 11.5207 5.14289 12.0368C4.96816 12.5538 4.88079 13.3171 4.88375 14.3275L4.88079 20.3482H2.02509V3.2627H4.88449M16.1429 3.2627V9.85683C17.064 8.65981 18.1664 8.05726 19.4451 8.05726C20.1018 8.05726 20.6964 8.19457 21.2265 8.46676C21.7551 8.73735 22.152 9.08466 22.4185 9.50629C22.6875 9.92913 22.8747 10.4073 22.9686 10.9117C23.0671 11.423 23.116 12.2186 23.116 13.2977V20.3482H20.2595V13.998C20.2595 12.7379 20.2055 11.9399 20.0967 11.6007C19.9947 11.2679 19.7917 10.983 19.5214 10.793C19.2489 10.5902 18.9031 10.4901 18.4893 10.4901C18.0161 10.4901 17.5912 10.6193 17.221 10.8762C16.8485 11.1346 16.5761 11.5207 16.4021 12.0368C16.2303 12.5538 16.1429 13.3171 16.1429 14.3275V20.3482H13.2872V3.2627H16.1429Z"
+                          fill="#FCFCFC"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer__bottom">
+              <div class="footer__bottom-columns">
+                <div class="footer__bottom-column">
+                  <a class="privacy-link" href="#!"
+                    >Политика конфиденциальности</a
+                  >
+                </div>
+                <div class="footer__bottom-column">
+                  <p class="copyright">
+                    Сайт носит информационный характер и ни при каких условиях
+                    не является публичной офертой, определяемой положениями
+                    статьи 437(2) Гражданского кодекса Российской Федерации.
+                    Условия и стоимость предоставления услуг необходимо уточнять
+                    у менеджера.
+                  </p>
+                  <p class="copyright">
+                    1997–2023 © Nordcore & Swift Technical
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
     </div>
+
+    <!-- JS libs -->
+    <script src="./js/libs/swiper/swiper-bundle.min.js"></script>
+    <!-- End JS libs -->
+
+    <!-- Main JS -->
+    <script src="./js/index.js" type="module"></script>
+    <!-- End Main JS -->
   </body>
 </html>

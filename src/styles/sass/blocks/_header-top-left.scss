@@ -24,7 +24,7 @@
   transition: 0.3s;
 }
 
-.header__nav-top ul {
+.header__nav-list-top {
   display: flex;
   column-gap: 16px;
 }
@@ -33,7 +33,7 @@
   padding: 16px 0;
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-gray);
+  color: rgba(0, 0, 0, 30%);
   transition: 0.3s;
 
   &:hover {

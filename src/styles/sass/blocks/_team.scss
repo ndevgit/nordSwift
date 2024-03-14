@@ -1,0 +1,144 @@
+.team {
+  background-color: var(--bg-darkgray);
+
+  padding-top: 120px;
+  padding-bottom: 184px;
+
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+}
+
+.team__block-title--directors {
+  margin-bottom: 24px;
+}
+
+.team__card--directors {
+  max-width: 394px;
+
+  & .card__decorate {
+    background-image: url(../../../images/cards-bg/card-bg-team.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    background-color: transparent;
+    border-radius: 32px;
+    height: 315px;
+
+    z-index: 1;
+
+    & .card__tags {
+      bottom: 0;
+      top: unset;
+    }
+
+    & .card__tag:nth-child(1) {
+      background-color: var(--ui-orange);
+    }
+
+    & .card__tag:nth-child(2) {
+      background-color: var(--ui-green);
+    }
+  }
+
+  & .card__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 245px;
+    border-radius: 0 0 32px 32px;
+    padding: 64px 32px 32px 32px;
+  }
+
+  & .card__body-top {
+    margin-bottom: 32px;
+  }
+
+  & .card__body-bottom {
+    margin-top: auto;
+  }
+
+  & .card__title-wrapper {
+    max-width: 330px;
+  }
+
+  & .card__author-name {
+    margin-bottom: 6px;
+  }
+}
+
+.team__block-title--members {
+  margin-bottom: 24px;
+  font-size: 36px;
+}
+
+.team__card--members {
+  max-width: 294px;
+
+  & .card__decorate {
+    background-image: url(../../../images/cards-bg/card-bg-team.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    background-color: transparent;
+    border-radius: 32px;
+    height: 235px;
+
+    z-index: 1;
+
+    & .card__tags {
+      bottom: 0;
+      top: unset;
+    }
+  }
+
+  & .card__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 245px;
+    border-radius: 0 0 32px 32px;
+    padding: 64px 32px 32px 32px;
+  }
+
+  & .card__body-top {
+    margin-bottom: 32px;
+  }
+
+  & .card__body-bottom {
+    margin-top: auto;
+  }
+
+  & .card__title-wrapper {
+    max-width: 330px;
+  }
+
+  & .card__author-name {
+    margin-bottom: 6px;
+  }
+}
+
+.team__card--members--slide-1 {
+  .card__tag {
+    background-color: var(--ui-green);
+  }
+}
+
+.team__card--members--slide-2 {
+  .card__tag {
+    background-color: var(--ui-orange);
+  }
+}
+
+.team__card--members--slide-3 {
+  .card__tag {
+    background-color: var(--ui-green);
+  }
+}
+
+.team__card--members--slide-4 {
+  .card__tag {
+    background-color: var(--ui-orange);
+  }
+}

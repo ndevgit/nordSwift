@@ -1,0 +1,35 @@
+.fact {
+  max-width: 203px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.fact__top-number {
+  color: var(--text-white);
+  font-weight: 700;
+
+  font-size: 48px;
+  opacity: 1;
+}
+
+.fact__top-text {
+  color: var(--text-white);
+  font-weight: 700;
+
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.fact__bottom {
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, var(--ui-white), transparent) 36%;
+}
+
+.fact__bottom-text {
+  color: var(--text-white);
+  opacity: 0.6;
+  font-size: 14px;
+  font-family: var(--font-nunitosans);
+  font-weight: 400;
+  line-height: 140%;
+}
