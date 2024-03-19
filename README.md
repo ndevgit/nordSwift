@@ -1,4 +1,4 @@
-Ссылка на просмотр https://ndevgit.github.io/nordswift/<br>
+Ссылка на просмотр https://ndevgit.github.io/nordSwift/<br>
 Gulp<br>
 БЭМ<br>
 Flexbox<br>
