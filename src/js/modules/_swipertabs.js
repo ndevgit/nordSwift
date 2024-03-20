@@ -12,6 +12,7 @@ const swiperFacts = new Swiper(".swiper-facts", {
     },
     992: {
       enabled: true,
+      spaceBetween: 0,
     },
   },
 });
@@ -33,24 +34,6 @@ const swiperServicesNordcore = new Swiper(".swiper-services--nordcore", {
     },
   },
 });
-
-// const swiperServicesSwift = new Swiper(".swiper-services--swift", {
-//   Optional parameters
-//   direction: "horizontal",
-//   loop: false,
-
-//   spaceBetween: 9,
-//   slidesPerView: "auto",
-
-//   breakpoints: {
-//     993: {
-//       enabled: false,
-//     },
-//     992: {
-//       enabled: true,
-//     },
-//   },
-// });
 
 function initializeSwiperServicesSwift() {
   if (window.window.innerWidth <= 992) {
